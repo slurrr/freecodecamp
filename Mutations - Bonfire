@@ -1,14 +1,29 @@
+//my original solution
 function mutation(arr) {
-  var temp = [];
-  var element = arr[1].split('');
-  var index = arr[0];
-  var idx = arr.indexOf(element);
-  while (idx != -1) {
-    temp.push(idx);
-    arr.indexOf(element, idx + 1);
-  } 
-  
-  return temp;
+  var firstElement = arr[0].toLowerCase().split('');
+  var secondElement = arr[1].toLowerCase().split('');
+  for (var i = 0; i < secondElement.length; i++) {
+    if (firstElement.indexOf(secondElement[i]) === -1) {
+      return false;
+    } 
+  }
+  return true;
 }
+mutation(["hello", "neo"]);
 
-mutation(["hello", "hey"], "");
+//using .every method
+function mutation(arr) {
+  var firstElement = arr[0].toLowerCase();
+  var secondElement = arr[1].toLowerCase();
+  return secondElement.split('').every(function(elem) {return  firstElement.indexOf(elem) != -1;} );
+}
+mutation(["Aliens", "lines"]);
+
+//using .map and .reduce
+function mutation(arr) {
+  var firstElement = arr[0].toLowerCase();
+  var secondElement = arr[1].toLowerCase().split('');
+  var map = secondElement.map(function(elem){return firstElement.indexOf(elem) != -1});
+  return map.reduce(function(a,b) {return a&&b;}, true);
+}
+mutation(["Aliens", "lines"]);
