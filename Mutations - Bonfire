@@ -1,0 +1,14 @@
+function mutation(arr) {
+  var temp = [];
+  var element = arr[1].split('');
+  var index = arr[0];
+  var idx = arr.indexOf(element);
+  while (idx != -1) {
+    temp.push(idx);
+    arr.indexOf(element, idx + 1);
+  } 
+  
+  return temp;
+}
+
+mutation(["hello", "hey"], "");
