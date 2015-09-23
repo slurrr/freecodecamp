@@ -1,0 +1,29 @@
+//first crack
+function destroyer(arr) {
+  var arg2 = arguments[1];
+  var arg3 = arguments[2];
+  var arg4 = arguments[3]; 
+  var result = arr.filter(function(arg) {
+      if (arg != arg2 && arg != arg3 && arg != arg4) {
+        return (arg); 
+    }
+  });
+  return result;
+}
+
+destroyer([1, 2, 3, 1, 2, 3], 2, 3);
+
+
+//first argument iteration attempt
+function destroyer(arr) {
+  var result = arr.filter(function(arg) {
+    for (var i = 1; i < arguments.length; i++)  {
+      if (arg != arguments[i]) {
+        return (arg);
+      }
+    }
+  });
+  return result;
+}
+
+destroyer([1, 2, 3, 1, 2, 3], 2, 3);
