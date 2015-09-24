@@ -1,4 +1,4 @@
-//first crack
+//first working code
 function destroyer(arr) {
   var arg2 = arguments[1];
   var arg3 = arguments[2];
@@ -27,3 +27,17 @@ function destroyer(arr) {
 }
 
 destroyer([1, 2, 3, 1, 2, 3], 2, 3);
+
+
+//working iteration 
+function destroyer(arr) {
+  var badValues = [];
+  for (var i = 1; i < arguments.length; i++)
+    badValues.push(arguments[i]);
+  return arr.filter(function(value) {
+    return badValues.indexOf(value) === -1;
+  });
+}
+
+destroyer([1, 2, 3, 1, 2, 3], 9, 'fish', 5, 1, "");
+
